@@ -1,0 +1,16 @@
+{
+  "pages": [
+   "pages/welcome/welcome",
+    "pages/posts/posts",
+    "pages/movies/movies",
+    "pages/posts/post-detail/post-detail",
+    "pages/movies/stars/stars-template",
+    "pages/movies/movie/movie-template",
+    "pages/movies/movie-list/movie-list-template"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#405f80"
+  }
+  
+ 
+}
