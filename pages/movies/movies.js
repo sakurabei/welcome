@@ -10,6 +10,7 @@ Page({
     inTheatersUrl:{},
     comingSoonUrl:{},
     top250Url:{},
+    searchResult:{},
     containerShow:true,
     searchPannelShow:false ,
 
@@ -40,7 +41,6 @@ Page({
         "Content-Type": ""
       },
       success: function (res) {
-        console.log(res)
         that.processDoubanData(res.data, settedKey, categoryTitle)
         
       },
@@ -53,7 +53,7 @@ Page({
     this.setData({
       containerShow: true,
       searchPanelShow: false,
-      // searchResult:{}
+      searchResult:{}
     })
 
   },
@@ -63,7 +63,12 @@ Page({
       searchPanelShow:true,
     })
   },
-
+  onBindChange:function(event){
+    var text = event.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    this.getMovieListData(searchUrl,"searchResult","");
+    console.log(111);
+  },
   processDoubanData:function(moviesDouban,settedKey,categoryTitle){
     var movies = [];
     for (var idx in moviesDouban.subjects){
